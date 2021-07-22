@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings.keys
     @ratings_to_show = params[:ratings] ? params[:ratings].keys : []
-    @ordering = params[:sort]
+    @ordering = params[:prev_sort] ? params[:prev_sort].keys : params[:sort]
     @movies = Movie.find_all_by_rating(@ratings_to_show, @ordering)
   end
 
