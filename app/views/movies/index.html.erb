@@ -14,10 +14,10 @@
 <table>
   <thead>
     <tr>
-      <th><%= link_to 'Movie Title', movies_path(sort:'title'), class: "hilite #{@ordering === 'title' ? 'bg-warning' : ''}", id: 'title_header' %> </th>
+      <th><%= link_to 'Movie Title', movies_path({sort:'title' ,ratings: @ratings_to_show.map{|rating| [rating, 1] }.to_h}), class: "hilite #{@ordering === 'title' ? 'bg-warning' : ''}", id: 'title_header' %> </th>
       <th>Rating</th>
       <th>Description</th>
-      <th><%= link_to 'Release Date', movies_path(sort:'release_date'),  class: "hilite #{@ordering === 'release_date' ? 'bg-warning' : ''}", id: 'release_date_header' %> </th>
+      <th><%= link_to 'Release Date', movies_path({sort:'release_date',ratings: @ratings_to_show.map{|rating| [rating, 1] }.to_h}),  class: "hilite #{@ordering === 'release_date' ? 'bg-warning' : ''}", id: 'release_date_header' %> </th>
       <th colspan="3"></th>
     </tr>
   </thead>
